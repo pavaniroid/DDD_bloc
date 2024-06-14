@@ -38,20 +38,20 @@ mixin _$ValueFailure<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
+    required TResult Function(_ShortPassword<T> value) shortPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(_ShortPassword<T> value)? shortPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult Function(_ShortPassword<T> value)? shortPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -129,7 +129,7 @@ class __$$InvalidEmailImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
+class _$InvalidEmailImpl<T> implements _InvalidEmail<T> {
   const _$InvalidEmailImpl({required this.failedValue});
 
   @override
@@ -193,8 +193,8 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
+    required TResult Function(_ShortPassword<T> value) shortPassword,
   }) {
     return invalidEmail(this);
   }
@@ -202,8 +202,8 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(_ShortPassword<T> value)? shortPassword,
   }) {
     return invalidEmail?.call(this);
   }
@@ -211,8 +211,8 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult Function(_ShortPassword<T> value)? shortPassword,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -222,8 +222,8 @@ class _$InvalidEmailImpl<T> implements InvalidEmail<T> {
   }
 }
 
-abstract class InvalidEmail<T> implements ValueFailure<T> {
-  const factory InvalidEmail({required final String failedValue}) =
+abstract class _InvalidEmail<T> implements ValueFailure<T> {
+  const factory _InvalidEmail({required final String failedValue}) =
       _$InvalidEmailImpl<T>;
 
   @override
@@ -269,7 +269,7 @@ class __$$ShortPasswordImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ShortPasswordImpl<T> implements ShortPassword<T> {
+class _$ShortPasswordImpl<T> implements _ShortPassword<T> {
   const _$ShortPasswordImpl({required this.failedValue});
 
   @override
@@ -333,8 +333,8 @@ class _$ShortPasswordImpl<T> implements ShortPassword<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InvalidEmail<T> value) invalidEmail,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
+    required TResult Function(_ShortPassword<T> value) shortPassword,
   }) {
     return shortPassword(this);
   }
@@ -342,8 +342,8 @@ class _$ShortPasswordImpl<T> implements ShortPassword<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InvalidEmail<T> value)? invalidEmail,
-    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(_ShortPassword<T> value)? shortPassword,
   }) {
     return shortPassword?.call(this);
   }
@@ -351,8 +351,8 @@ class _$ShortPasswordImpl<T> implements ShortPassword<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InvalidEmail<T> value)? invalidEmail,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult Function(_ShortPassword<T> value)? shortPassword,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -362,8 +362,8 @@ class _$ShortPasswordImpl<T> implements ShortPassword<T> {
   }
 }
 
-abstract class ShortPassword<T> implements ValueFailure<T> {
-  const factory ShortPassword({required final String failedValue}) =
+abstract class _ShortPassword<T> implements ValueFailure<T> {
+  const factory _ShortPassword({required final String failedValue}) =
       _$ShortPasswordImpl<T>;
 
   @override

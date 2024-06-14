@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "141504150203",
+    "project_id": "notes-freezed-bloc",
+    "storage_bucket": "notes-freezed-bloc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141504150203:android:4925a1dadde2ae8ca0c79e",
+        "android_client_info": {
+          "package_name": "com.example.ddd_bloc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcAl9qVbcKF0TH1KnghFfeKJwI6bPDdL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

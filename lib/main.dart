@@ -1,6 +1,14 @@
+import 'package:ddd_bloc/firebase_options.dart';
+import 'package:ddd_bloc/injection.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 
-void main() {
+void main() async{
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  configureInjection(Environment.prod);
   runApp(const MyApp());
 }
 
