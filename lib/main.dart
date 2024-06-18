@@ -1,77 +1,63 @@
 import 'package:ddd_bloc/firebase_options.dart';
 import 'package:ddd_bloc/injection.dart';
+import 'package:ddd_bloc/presentation/core/app_widget.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   configureInjection(Environment.prod);
-  runApp(const MyApp());
+  Bloc.observer = Observer();
+  runApp(AppWidget());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
 
-  // This widget is the root of your application.
+
+class Observer extends BlocObserver {
+
+  ///We can run something, when we create our Bloc
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  void onCreate(BlocBase bloc) {
+    super.onCreate(bloc);
+    ///We can check, if the BlocBase is a Bloc or a Cubit
+    if (bloc is Cubit) {
+      print("This is a Cubit");
+    } else {
+      print("This is a Bloc");
+    }
   }
 
+  ///We can react to events
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+  void onEvent(Bloc bloc, Object? event) {
+    super.onEvent(bloc, event);
+    print("an event Happened in $bloc the event is $event");
+  }
+
+  ///We can even react to transitions
+  @override
+  void onTransition(Bloc bloc, Transition transition) {
+    super.onTransition(bloc, transition);
+    /// With this we can specifically know, when and what changed in our Bloc
+    print("There was a transition from ${transition.currentState} to ${transition.nextState}");
+  }
+
+  ///We can react to errors, and we will know the error and the StackTrace
+  @override
+  void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
+    super.onError(bloc, error, stackTrace);
+    print("Error happened in $bloc with error $error and the stacktrace is $stackTrace");
+  }
+
+  ///We can even run something, when we close our Bloc
+  @override
+  void onClose(BlocBase bloc) {
+    super.onClose(bloc);
+    print("BLOC is closed");
   }
 }
