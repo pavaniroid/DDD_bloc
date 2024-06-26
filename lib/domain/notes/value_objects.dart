@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:dartz/dartz.dart';
 import 'package:ddd_bloc/domain/core/failures.dart';
 import 'package:ddd_bloc/domain/core/value_objects.dart';
@@ -37,7 +36,6 @@ class TodoName extends ValueObject<String?> {
   }
 
   const TodoName._(this.value);
-
 }
 
 class NoteColor extends ValueObject<Color> {

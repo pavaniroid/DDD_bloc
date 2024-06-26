@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:ddd_bloc/domain/core/value_objects.dart';
@@ -16,7 +15,7 @@ part 'note_dtos.g.dart';
 abstract class NoteDto implements _$NoteDto {
   const NoteDto._();
 
-  // @JsonSerializable(explicitToJson: true)
+  @JsonSerializable(explicitToJson: true)
   factory NoteDto({
     @JsonKey(ignore: true) String? id,
     required String body,
