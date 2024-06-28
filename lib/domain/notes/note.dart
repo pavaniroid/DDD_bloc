@@ -18,11 +18,11 @@ abstract class Note with _$Note {
   }) = _Note;
 
   factory Note.empty() => Note(
-        id: UniqueId(),
-        body: NoteBody(''),
-        color: NoteColor(NoteColor.predefinedColors[0]),
-        todos: List3<TodoItem>(emptyList()),
-      );
+    id: UniqueId(),
+    body: NoteBody(''),
+    color: NoteColor(NoteColor.predefinedColors[0]),
+    todos: List3<TodoItem>(emptyList()),
+  );
 }
 
 extension NoteX on Note {
@@ -31,13 +31,13 @@ extension NoteX on Note {
         .andThen(color.failureOrUnit)
         .andThen(todos.failureOrUnit)
         .andThen(
-          todos
-              .getOrCrash()
-              .map((todoItem) => todoItem.failureOption)
-              .filter((o) => o.isSome())
-              .getOrElse(0, (_) => none())
-              .fold(() => right(unit), (f) => left(f)),
-        )
+      todos
+          .getOrCrash()
+          .map((todoItem) => todoItem.failureOption)
+          .filter((o) => o.isSome())
+          .getOrElse(0, (_) => none())
+          .fold(() => right(unit), (f) => left(f)),
+    )
         .fold((f) => some(f), (_) => none());
   }
 }

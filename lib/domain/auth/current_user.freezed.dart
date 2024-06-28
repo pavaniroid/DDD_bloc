@@ -15,27 +15,25 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CurrentUser {
-  String get id => throw _privateConstructorUsedError;
+mixin _$User {
+  UniqueId get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CurrentUserCopyWith<CurrentUser> get copyWith =>
-      throw _privateConstructorUsedError;
+  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CurrentUserCopyWith<$Res> {
-  factory $CurrentUserCopyWith(
-          CurrentUser value, $Res Function(CurrentUser) then) =
-      _$CurrentUserCopyWithImpl<$Res, CurrentUser>;
+abstract class $UserCopyWith<$Res> {
+  factory $UserCopyWith(User value, $Res Function(User) then) =
+      _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({String id});
+  $Res call({UniqueId id});
 }
 
 /// @nodoc
-class _$CurrentUserCopyWithImpl<$Res, $Val extends CurrentUser>
-    implements $CurrentUserCopyWith<$Res> {
-  _$CurrentUserCopyWithImpl(this._value, this._then);
+class _$UserCopyWithImpl<$Res, $Val extends User>
+    implements $UserCopyWith<$Res> {
+  _$UserCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -51,28 +49,26 @@ class _$CurrentUserCopyWithImpl<$Res, $Val extends CurrentUser>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UniqueId,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$CurrentUserImplCopyWith<$Res>
-    implements $CurrentUserCopyWith<$Res> {
-  factory _$$CurrentUserImplCopyWith(
-          _$CurrentUserImpl value, $Res Function(_$CurrentUserImpl) then) =
-      __$$CurrentUserImplCopyWithImpl<$Res>;
+abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
+  factory _$$UserImplCopyWith(
+          _$UserImpl value, $Res Function(_$UserImpl) then) =
+      __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id});
+  $Res call({UniqueId id});
 }
 
 /// @nodoc
-class __$$CurrentUserImplCopyWithImpl<$Res>
-    extends _$CurrentUserCopyWithImpl<$Res, _$CurrentUserImpl>
-    implements _$$CurrentUserImplCopyWith<$Res> {
-  __$$CurrentUserImplCopyWithImpl(
-      _$CurrentUserImpl _value, $Res Function(_$CurrentUserImpl) _then)
+class __$$UserImplCopyWithImpl<$Res>
+    extends _$UserCopyWithImpl<$Res, _$UserImpl>
+    implements _$$UserImplCopyWith<$Res> {
+  __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,33 +76,33 @@ class __$$CurrentUserImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$CurrentUserImpl(
+    return _then(_$UserImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UniqueId,
     ));
   }
 }
 
 /// @nodoc
 
-class _$CurrentUserImpl implements _CurrentUser {
-  const _$CurrentUserImpl({required this.id});
+class _$UserImpl implements _User {
+  const _$UserImpl({required this.id});
 
   @override
-  final String id;
+  final UniqueId id;
 
   @override
   String toString() {
-    return 'CurrentUser(id: $id)';
+    return 'User(id: $id)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CurrentUserImpl &&
+            other is _$UserImpl &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -116,17 +112,17 @@ class _$CurrentUserImpl implements _CurrentUser {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CurrentUserImplCopyWith<_$CurrentUserImpl> get copyWith =>
-      __$$CurrentUserImplCopyWithImpl<_$CurrentUserImpl>(this, _$identity);
+  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
+      __$$UserImplCopyWithImpl<_$UserImpl>(this, _$identity);
 }
 
-abstract class _CurrentUser implements CurrentUser {
-  const factory _CurrentUser({required final String id}) = _$CurrentUserImpl;
+abstract class _User implements User {
+  const factory _User({required final UniqueId id}) = _$UserImpl;
 
   @override
-  String get id;
+  UniqueId get id;
   @override
   @JsonKey(ignore: true)
-  _$$CurrentUserImplCopyWith<_$CurrentUserImpl> get copyWith =>
+  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

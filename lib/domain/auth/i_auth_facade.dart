@@ -5,7 +5,7 @@ import 'package:ddd_bloc/domain/auth/value_objects.dart';
 
 
 abstract class IAuthFacade {
-  Future<Option<CurrentUser>> getSignedInUser();
+  Future<Option<User>> getSignedInUser();
   Future<void> signedOut();
   Future<Either<AuthFailure, Unit>> registerEmailAndPassword({
     required EmailAddress emailAddress,

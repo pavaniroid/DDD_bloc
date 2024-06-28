@@ -1,8 +1,9 @@
 import 'package:another_flushbar/flushbar.dart';
-import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:ddd_bloc/application/auth/sign_in_form_bloc.dart';
 import 'package:ddd_bloc/application/auth_bloc.dart';
 import 'package:ddd_bloc/domain/auth/auth_failure.dart';
+import 'package:ddd_bloc/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,18 +34,19 @@ class SignInForm extends StatelessWidget {
                   ).show(context);
                 },
                 (_) {
-                  // context.router
-                  //     .replace(const PageRouteInfo(NotesOverviewPage.name));
+                  context.router
+                      .replace(const PageRouteInfo(NotesOverviewRoute.name));
                   // context.router.pushNamed(Noti.name);
-                  // context
-                  //     .read<AuthBloc>()
-                  //     .add(const AuthEvent.authCheckRequested());
+                  context
+                      .read<AuthBloc>()
+                      .add(const AuthEvent.authCheckRequested());
                 },
               );
             },
           );
         },
         builder: (context, state) {
+          if (state.isSubmitting) return const Center(child: CircularProgressIndicator());
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
             child: Form(

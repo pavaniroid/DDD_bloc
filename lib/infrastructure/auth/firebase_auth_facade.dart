@@ -1,16 +1,23 @@
 import 'package:dartz/dartz.dart';
 import 'package:ddd_bloc/domain/auth/auth_failure.dart';
+import 'package:ddd_bloc/domain/auth/current_user.dart';
 import 'package:ddd_bloc/domain/auth/i_auth_facade.dart';
 import 'package:ddd_bloc/domain/auth/value_objects.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ddd_bloc/infrastructure/auth/firebase_user_mapper.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebaseAuth;
 import 'package:injectable/injectable.dart';
-import 'package:ddd_bloc/domain/auth/current_user.dart';
 
 @LazySingleton(as: IAuthFacade, env: [Environment.prod])
 class FirebaseAuthFacade implements IAuthFacade {
-  final FirebaseAuth _firebaseAuth;
+  final firebaseAuth.FirebaseAuth _firebaseAuth;
 
   FirebaseAuthFacade(this._firebaseAuth);
+
+  @override
+  Future<Option<User>> getSignedInUser() async {
+    final firebaseUser = _firebaseAuth.currentUser;
+    return optionOf(firebaseUser?.toDomain());
+  }
 
   @override
   Future<Either<AuthFailure, Unit>> registerEmailAndPassword({
@@ -27,7 +34,7 @@ class FirebaseAuthFacade implements IAuthFacade {
             (value) => right(unit),
           );
       // return right(unit);
-    } on FirebaseAuthException catch (e) {
+    } on firebaseAuth.FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return left(const AuthFailure.emailAlreadyInUse());
       } else if (e.code == 'operation-not-allowed') {
@@ -51,7 +58,7 @@ class FirebaseAuthFacade implements IAuthFacade {
           email: emailAddressStr ?? '', password: passwordStr ?? '');
       print('exception');
       return right(unit);
-    } on FirebaseAuthException catch (e) {
+    } on firebaseAuth.FirebaseAuthException catch (e) {
       print('e code is:- ${e.code}');
       if (e.code == 'wrong-password' ||
           e.code == 'user-not-found' ||
@@ -63,10 +70,6 @@ class FirebaseAuthFacade implements IAuthFacade {
       }
     }
   }
-
-  @override
-  Future<Option<CurrentUser>> getSignedInUser() async =>
-      optionOf(_firebaseAuth.currentUser?.toDomain());
 
   @override
   Future<void> signedOut() => Future.wait([

@@ -4,14 +4,10 @@ import 'package:firebase_auth/firebase_auth.dart' as firebaseauth;
 import 'package:injectable/injectable.dart';
 
 @lazySingleton
-class FirebaseUserMapper {
-  CurrentUser? toDomain(firebaseauth.User? _) {
-    if (_ == null) {
-      return null;
-    } else {
-      return CurrentUser(
-      id: UniqueId.fromUniqueString(_.uid).toString(),
-    );
-    }
-  }
+extension FirebaseUserDomainX on firebaseauth.User {
+User toDomain() {
+  return User(
+    id: UniqueId.fromUniqueString(uid),
+  );
+}
 }

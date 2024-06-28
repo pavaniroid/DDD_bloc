@@ -477,7 +477,7 @@ mixin _$NoteWatcherState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Note> note) loadSuccess,
+    required TResult Function(KtList<Note> notes) loadSuccess,
     required TResult Function(NoteFailure noteFailure) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -485,7 +485,7 @@ mixin _$NoteWatcherState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<Note> note)? loadSuccess,
+    TResult? Function(KtList<Note> notes)? loadSuccess,
     TResult? Function(NoteFailure noteFailure)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -493,7 +493,7 @@ mixin _$NoteWatcherState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Note> note)? loadSuccess,
+    TResult Function(KtList<Note> notes)? loadSuccess,
     TResult Function(NoteFailure noteFailure)? loadFailure,
     required TResult orElse(),
   }) =>
@@ -583,7 +583,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Note> note) loadSuccess,
+    required TResult Function(KtList<Note> notes) loadSuccess,
     required TResult Function(NoteFailure noteFailure) loadFailure,
   }) {
     return initial();
@@ -594,7 +594,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<Note> note)? loadSuccess,
+    TResult? Function(KtList<Note> notes)? loadSuccess,
     TResult? Function(NoteFailure noteFailure)? loadFailure,
   }) {
     return initial?.call();
@@ -605,7 +605,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Note> note)? loadSuccess,
+    TResult Function(KtList<Note> notes)? loadSuccess,
     TResult Function(NoteFailure noteFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -697,7 +697,7 @@ class _$LoadInProgressImpl implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Note> note) loadSuccess,
+    required TResult Function(KtList<Note> notes) loadSuccess,
     required TResult Function(NoteFailure noteFailure) loadFailure,
   }) {
     return loadInProgress();
@@ -708,7 +708,7 @@ class _$LoadInProgressImpl implements _LoadInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<Note> note)? loadSuccess,
+    TResult? Function(KtList<Note> notes)? loadSuccess,
     TResult? Function(NoteFailure noteFailure)? loadFailure,
   }) {
     return loadInProgress?.call();
@@ -719,7 +719,7 @@ class _$LoadInProgressImpl implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Note> note)? loadSuccess,
+    TResult Function(KtList<Note> notes)? loadSuccess,
     TResult Function(NoteFailure noteFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -777,7 +777,7 @@ abstract class _$$LoadSuccessImplCopyWith<$Res> {
           _$LoadSuccessImpl value, $Res Function(_$LoadSuccessImpl) then) =
       __$$LoadSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({KtList<Note> note});
+  $Res call({KtList<Note> notes});
 }
 
 /// @nodoc
@@ -791,12 +791,12 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? note = null,
+    Object? notes = null,
   }) {
     return _then(_$LoadSuccessImpl(
-      null == note
-          ? _value.note
-          : note // ignore: cast_nullable_to_non_nullable
+      null == notes
+          ? _value.notes
+          : notes // ignore: cast_nullable_to_non_nullable
               as KtList<Note>,
     ));
   }
@@ -805,14 +805,14 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadSuccessImpl implements _LoadSuccess {
-  const _$LoadSuccessImpl(this.note);
+  const _$LoadSuccessImpl(this.notes);
 
   @override
-  final KtList<Note> note;
+  final KtList<Note> notes;
 
   @override
   String toString() {
-    return 'NoteWatcherState.loadSuccess(note: $note)';
+    return 'NoteWatcherState.loadSuccess(notes: $notes)';
   }
 
   @override
@@ -820,11 +820,11 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadSuccessImpl &&
-            (identical(other.note, note) || other.note == note));
+            (identical(other.notes, notes) || other.notes == notes));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, note);
+  int get hashCode => Object.hash(runtimeType, notes);
 
   @JsonKey(ignore: true)
   @override
@@ -837,10 +837,10 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Note> note) loadSuccess,
+    required TResult Function(KtList<Note> notes) loadSuccess,
     required TResult Function(NoteFailure noteFailure) loadFailure,
   }) {
-    return loadSuccess(note);
+    return loadSuccess(notes);
   }
 
   @override
@@ -848,10 +848,10 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<Note> note)? loadSuccess,
+    TResult? Function(KtList<Note> notes)? loadSuccess,
     TResult? Function(NoteFailure noteFailure)? loadFailure,
   }) {
-    return loadSuccess?.call(note);
+    return loadSuccess?.call(notes);
   }
 
   @override
@@ -859,12 +859,12 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Note> note)? loadSuccess,
+    TResult Function(KtList<Note> notes)? loadSuccess,
     TResult Function(NoteFailure noteFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
-      return loadSuccess(note);
+      return loadSuccess(notes);
     }
     return orElse();
   }
@@ -908,9 +908,9 @@ class _$LoadSuccessImpl implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements NoteWatcherState {
-  const factory _LoadSuccess(final KtList<Note> note) = _$LoadSuccessImpl;
+  const factory _LoadSuccess(final KtList<Note> notes) = _$LoadSuccessImpl;
 
-  KtList<Note> get note;
+  KtList<Note> get notes;
   @JsonKey(ignore: true)
   _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -993,7 +993,7 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(KtList<Note> note) loadSuccess,
+    required TResult Function(KtList<Note> notes) loadSuccess,
     required TResult Function(NoteFailure noteFailure) loadFailure,
   }) {
     return loadFailure(noteFailure);
@@ -1004,7 +1004,7 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(KtList<Note> note)? loadSuccess,
+    TResult? Function(KtList<Note> notes)? loadSuccess,
     TResult? Function(NoteFailure noteFailure)? loadFailure,
   }) {
     return loadFailure?.call(noteFailure);
@@ -1015,7 +1015,7 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(KtList<Note> note)? loadSuccess,
+    TResult Function(KtList<Note> notes)? loadSuccess,
     TResult Function(NoteFailure noteFailure)? loadFailure,
     required TResult orElse(),
   }) {

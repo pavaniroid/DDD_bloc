@@ -49,6 +49,7 @@ dependencies:
   uuid: ^4.4.0
   kt_dart: ^1.1.0
   rxdart: ^0.28.0
+  flutter_hooks: ^0.20.5
 
 dev_dependencies:
   flutter_test:

@@ -7,16 +7,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'current_user.freezed.dart';
 
 @freezed
-abstract class CurrentUser with _$CurrentUser {
-  const factory CurrentUser({
-    required String id,
-  }) = _CurrentUser;
-}
-
-extension FirebaseUserDomainX on User {
-  CurrentUser toDomain() {
-    return CurrentUser(
-      id: UniqueId.fromUniqueString(uid).toString(),
-    );
-  }
+abstract class User with _$User {
+  const factory User({
+    required UniqueId id,
+  }) = _User;
 }
